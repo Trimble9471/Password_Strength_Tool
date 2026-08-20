@@ -8,6 +8,15 @@ def password_strength(password):
     score = 0
     recommendations = []
 
+    #Create a simple list of common passwords to check agains
+    common_passwords = {"password", "123456", "password123", "qwerty", "123password"}
+
+    #Check if password is in list of common passwords
+    if password.lower() in common_passwords:
+        strength = "\u274c Weak Password"
+        result = f"Password strength: {strength} - Common Password!!"
+        return result, strength
+    
     #Parameter 1: Check to see if password is >= 8
     if len(password) >= 8:
         score += 1
